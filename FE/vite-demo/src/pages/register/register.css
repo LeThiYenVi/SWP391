@@ -1,0 +1,327 @@
+.register-content {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.register-header h1 {
+  color: #1a365d;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+.register-header p {
+  color: #4a5568;
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #2d3748;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  font-family: inherit;
+  background: #ffffff;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.form-group input.error {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.1);
+  animation: shake 0.4s ease-in-out;
+}
+
+.form-group input::placeholder {
+  color: #a0aec0;
+}
+
+.error-text {
+  color: #e53e3e;
+  font-size: 12px;
+  margin-top: 4px;
+  display: block;
+  font-weight: 500;
+}
+
+.checkbox-group {
+  margin: 8px 0 24px 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  color: #4a5568;
+  user-select: none;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-right: 10px;
+  margin-top: 2px;
+  width: auto;
+  flex-shrink: 0;
+  accent-color: #667eea;
+}
+
+.checkbox-label input[type="checkbox"].error {
+  outline: 2px solid #e53e3e;
+  outline-offset: 2px;
+}
+
+.terms-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.terms-link:hover {
+  color: #5a67d8;
+  text-decoration: underline;
+}
+
+.register-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.register-button:hover:not(:disabled)::before {
+  left: 100%;
+}
+
+.register-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+}
+
+.register-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.register-footer {
+  text-align: center;
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.register-footer p {
+  color: #4a5568;
+  font-size: 14px;
+  margin: 0;
+}
+
+.login-link {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.login-link:hover {
+  color: #764ba2;
+  text-decoration: underline;
+}
+
+/* Medical theme additions */
+.register-button::after {
+  content: '👩‍⚕️';
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.8;
+  font-size: 16px;
+}
+
+/* Animation for form validation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+
+/* Focus states for accessibility */
+.form-group input:focus,
+.checkbox-label input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .register-content {
+    max-width: 100%;
+    padding: 0 5px;
+  }
+  
+  .register-header {
+    margin-bottom: 20px;
+  }
+  
+  .register-header h1 {
+    font-size: 20px;
+  }
+  
+  .register-header p {
+    font-size: 12px;
+  }
+  
+  .register-form {
+    gap: 14px;
+  }
+  
+  .form-group input {
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+  
+  .checkbox-group {
+    margin: 12px 0;
+  }
+  
+  .checkbox-label {
+    font-size: 12px;
+  }
+  
+  .register-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+  
+  .register-footer {
+    margin-top: 20px;
+  }
+  
+  .healthcare-notice {
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .notice-content {
+    gap: 10px;
+  }
+  
+  .notice-icon {
+    font-size: 20px;
+  }
+  
+  .notice-text strong {
+    font-size: 14px;
+  }
+  
+  .notice-text p {
+    font-size: 12px;
+  }
+  
+  .register-footer p {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-header h1 {
+    font-size: 18px;
+  }
+  
+  .register-header p {
+    font-size: 11px;
+  }
+  
+  .form-group input {
+    padding: 9px 10px;
+    font-size: 12px;
+  }
+  
+  .form-group label {
+    font-size: 12px;
+  }
+  
+  .checkbox-label {
+    font-size: 11px;
+  }
+  
+  .error-text {
+    font-size: 10px;
+  }
+  
+  .healthcare-notice {
+    padding: 12px;
+  }
+  
+  .notice-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  
+  .notice-text strong {
+    font-size: 13px;
+  }
+  
+  .notice-text p {
+    font-size: 11px;
+  }
+}

@@ -1,0 +1,326 @@
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.authen-template {
+    width: 100%;
+    min-height: 100vh;
+    max-width: 100vw;
+    background: #f8fafe;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+}
+
+.authen-page-title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a365d;
+    z-index: 10;
+    max-width: calc(100% - 40px);
+    line-height: 1.2;
+}
+
+.authen-layout {
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    max-width: 100%;
+}
+
+.authen-left {
+    flex: 1;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+.authen-left::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="medical" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23medical)"/></svg>');
+    opacity: 0.3;
+}
+
+.authen-brand {
+    text-align: center;
+    margin-bottom: 30px;
+    z-index: 2;
+    max-width: 100%;
+}
+
+.authen-logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.logo-icon {
+    font-size: 32px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.authen-subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    line-height: 1.4;
+    max-width: 280px;
+    margin: 0 auto;
+}
+
+.authen-image {
+    width: 100%;
+    max-width: 240px;
+    height: 160px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 2;
+    position: relative;
+    margin-bottom: 24px;
+}
+
+.medical-illustration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.medical-icons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    align-items: center;
+    justify-items: center;
+}
+
+.medical-icons span {
+    font-size: 28px;
+    opacity: 0.8;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    animation: float 3s ease-in-out infinite;
+}
+
+.medical-icons span:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.medical-icons span:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.medical-icons span:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+}
+
+.authen-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 2;
+    max-width: 100%;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.feature-icon {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.authen-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: #ffffff;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.authen-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Medical theme decorations */
+.authen-left::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .authen-layout {
+        flex-direction: column;
+        min-height: 100vh;
+    }
+    
+    .authen-left {
+        min-height: 50vh;
+        max-height: 50vh;
+        padding: 30px 15px;
+        overflow-y: auto;
+    }
+    
+    .authen-right {
+        min-height: 50vh;
+        padding: 15px;
+    }
+    
+    .authen-brand {
+        margin-bottom: 20px;
+    }
+    
+    .authen-logo {
+        font-size: 24px;
+        gap: 8px;
+    }
+    
+    .logo-icon {
+        font-size: 28px;
+    }
+    
+    .authen-subtitle {
+        font-size: 13px;
+        max-width: 250px;
+    }
+    
+    .authen-image {
+        width: 200px;
+        height: 120px;
+        margin-bottom: 16px;
+    }
+    
+    .medical-icons {
+        gap: 12px;
+    }
+    
+    .medical-icons span {
+        font-size: 20px;
+    }
+    
+    .authen-features {
+        gap: 8px;
+    }
+    
+    .feature-item {
+        font-size: 12px;
+        gap: 8px;
+    }
+    
+    .feature-icon {
+        font-size: 14px;
+        width: 16px;
+    }
+    
+    .authen-page-title {
+        position: relative;
+        text-align: center;
+        left: auto;
+        top: auto;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        margin: 0;
+        font-size: 18px;
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .authen-left {
+        padding: 20px 10px;
+    }
+    
+    .authen-right {
+        padding: 10px;
+    }
+    
+    .authen-card {
+        max-width: 100%;
+    }
+    
+    .authen-logo {
+        font-size: 20px;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .logo-icon {
+        font-size: 24px;
+    }
+    
+    .authen-subtitle {
+        font-size: 12px;
+        max-width: 200px;
+    }
+    
+    .authen-image {
+        width: 160px;
+        height: 100px;
+    }
+    
+    .medical-icons span {
+        font-size: 16px;
+    }
+    
+    .authen-page-title {
+        font-size: 16px;
+        padding: 10px;
+    }
+}
