@@ -1,6 +1,6 @@
 package com.example.gender_healthcare_service.service;
 
-import com.example.gender_healthcare_service.dto.ConsultantDTO;
+import com.example.gender_healthcare_service.dto.response.ConsultantDTO;
 
 import java.util.List;
 
