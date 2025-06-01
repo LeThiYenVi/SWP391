@@ -1,8 +1,9 @@
-package com.example.gender_healthcare_service.service;
+package com.example.gender_healthcare_service.service.impl;
 
-import com.example.gender_healthcare_service.dto.ConsultantDTO;
+import com.example.gender_healthcare_service.dto.response.ConsultantDTO;
 import com.example.gender_healthcare_service.entity.Consultant;
 import com.example.gender_healthcare_service.repository.ConsultantRepository;
+import com.example.gender_healthcare_service.service.ConsultantService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

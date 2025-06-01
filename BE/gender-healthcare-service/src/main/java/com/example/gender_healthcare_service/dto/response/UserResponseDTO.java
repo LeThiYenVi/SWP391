@@ -1,12 +1,10 @@
-package com.example.gender_healthcare_service.dto;
+package com.example.gender_healthcare_service.dto.response;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.time.LocalDate;
 @Data
-public class UserDTO {
+public class UserResponseDTO {
     private Integer id;
     private String username;
     private String email;
@@ -18,4 +16,5 @@ public class UserDTO {
     private String medicalHistory;
     private String gender;
     private String description;
+
 }
