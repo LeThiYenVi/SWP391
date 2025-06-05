@@ -1,6 +1,6 @@
 package com.example.gender_healthcare_service.controller;
 
-import com.example.gender_healthcare_service.dto.UserDTO;
+import com.example.gender_healthcare_service.dto.response.UserResponseDTO;
 import com.example.gender_healthcare_service.entity.User;
 import com.example.gender_healthcare_service.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +29,7 @@ public class UserController {
         return userService.getAllUsers();
     }
     @PostMapping("/register")
-    public ResponseEntity<UserDTO> register(@RequestBody User user) {
+    public ResponseEntity<User> register(@RequestBody User user) {
         return ResponseEntity.ok(userService.registerUser(user));
     }
 }
