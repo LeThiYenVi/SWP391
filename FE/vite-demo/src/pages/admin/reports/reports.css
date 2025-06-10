@@ -1,0 +1,695 @@
+/* Reports Styles */
+.reports {
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8fafe 0%, #f1f8ff 100%);
+  min-height: 100vh;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(102, 126, 234, 0.1);
+}
+
+.page-header h1 {
+  color: #667eea;
+  font-size: 2.5rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.header-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.period-select {
+  padding: 0.75rem 1rem;
+  border: 2px solid rgba(102, 126, 234, 0.2);
+  border-radius: 12px;
+  font-size: 1rem;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.period-select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Report Tabs */
+.report-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  background: white;
+  padding: 0.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: transparent;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #4a5568;
+}
+
+.tab-btn:hover {
+  background: rgba(102, 126, 234, 0.1);
+  color: #667eea;
+}
+
+.tab-btn.active {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+/* Report Container */
+.report-container {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+/* Overview Report Styles */
+.overview-stats {
+  margin-bottom: 3rem;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.stat-item {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(102, 126, 234, 0.15);
+}
+
+.stat-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+.stat-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: #4a5568;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a365d;
+  margin-bottom: 0.5rem;
+}
+
+.stat-trend {
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+.stat-trend.positive {
+  background: rgba(72, 187, 120, 0.1);
+  color: #2f855a;
+}
+
+.stat-trend.negative {
+  background: rgba(245, 101, 101, 0.1);
+  color: #c53030;
+}
+
+/* Charts Section */
+.charts-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.chart-container {
+  background: rgba(102, 126, 234, 0.03);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.chart-container h3 {
+  color: #667eea;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Bar Chart */
+.bar-chart {
+  display: flex;
+  align-items: end;
+  gap: 1rem;
+  height: 200px;
+  padding-top: 2rem;
+}
+
+.bar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bar {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.bar:hover {
+  transform: scaleY(1.1);
+}
+
+.bar-label {
+  font-size: 0.8rem;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+.bar-value {
+  font-size: 0.7rem;
+  color: #667eea;
+  font-weight: 500;
+}
+
+/* Pie Chart Legend */
+.pie-chart-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+}
+
+.legend-item:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-info {
+  flex: 1;
+}
+
+.legend-name {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 0.25rem;
+}
+
+.legend-value {
+  font-size: 0.9rem;
+  color: #667eea;
+  font-weight: 500;
+}
+
+/* User Analytics */
+.user-analytics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.analytics-section {
+  background: rgba(102, 126, 234, 0.03);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.analytics-section.full-width {
+  grid-column: 1 / -1;
+}
+
+.analytics-section h3 {
+  color: #667eea;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Demographics Chart */
+.demographics-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.demo-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.demo-label {
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 1rem;
+}
+
+.demo-bar {
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 8px;
+  height: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.demo-fill {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.6s ease;
+}
+
+.demo-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.demo-count {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.demo-percentage {
+  font-weight: 700;
+  color: #667eea;
+}
+
+/* Gender Chart */
+.gender-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.gender-item {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.gender-icon {
+  font-size: 3rem;
+}
+
+.gender-info {
+  flex: 1;
+}
+
+.gender-label {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.gender-count {
+  color: #4a5568;
+  margin-bottom: 0.25rem;
+}
+
+.gender-percentage {
+  font-weight: 700;
+  color: #667eea;
+  font-size: 1.1rem;
+}
+
+.gender-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gender-circle {
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+/* Growth Chart */
+.growth-chart {
+  display: flex;
+  align-items: end;
+  gap: 1.5rem;
+  height: 200px;
+  padding: 2rem 1rem;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.growth-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.growth-bar {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.growth-bar:hover {
+  transform: scaleY(1.1);
+}
+
+.growth-label {
+  font-size: 0.9rem;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+.growth-value {
+  font-size: 0.8rem;
+  color: #667eea;
+  font-weight: 700;
+}
+
+/* Performance Section */
+.performance-section {
+  background: rgba(102, 126, 234, 0.03);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  margin-bottom: 2rem;
+}
+
+.performance-section h3 {
+  color: #667eea;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Consultant Ranking */
+.consultant-ranking {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.consultant-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.consultant-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.15);
+}
+
+.consultant-item.rank-1 {
+  border-left: 4px solid #ffd700;
+}
+
+.consultant-item.rank-2 {
+  border-left: 4px solid #c0c0c0;
+}
+
+.consultant-item.rank-3 {
+  border-left: 4px solid #cd7f32;
+}
+
+.consultant-rank {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+  min-width: 40px;
+  text-align: center;
+}
+
+.consultant-info {
+  flex: 1;
+}
+
+.consultant-name {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.consultant-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+.consultant-medal {
+  font-size: 2rem;
+}
+
+/* Service Performance */
+.service-performance {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.service-item {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.service-name {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.service-metrics {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.metric {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.metric-label {
+  color: #4a5568;
+}
+
+.metric-value {
+  font-weight: 600;
+  color: #667eea;
+}
+
+.service-progress {
+  background: rgba(102, 126, 234, 0.1);
+  border-radius: 8px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.6s ease;
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .charts-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .user-analytics {
+    grid-template-columns: 1fr;
+  }
+  
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .reports {
+    padding: 1rem;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .page-header h1 {
+    font-size: 2rem;
+  }
+  
+  .header-controls {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .report-tabs {
+    flex-direction: column;
+  }
+  
+  .report-container {
+    padding: 1rem;
+  }
+  
+  .bar-chart,
+  .growth-chart {
+    height: 150px;
+  }
+  
+  .consultant-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .service-metrics {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .stat-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+  }
+  
+  .gender-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .consultant-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
