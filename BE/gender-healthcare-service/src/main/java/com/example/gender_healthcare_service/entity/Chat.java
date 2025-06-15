@@ -21,11 +21,11 @@ public class Chat {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "CustomerID", nullable = false)
-    private User customerID;
+    private User customer; // Renamed from customerID to customer
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ConsultantID")
-    private User consultantID;
+    private User consultant; // Renamed from consultantID to consultant
 
     @Size(max = 1000)
     @NotNull

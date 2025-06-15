@@ -98,6 +98,44 @@ public class User implements UserDetails {
     @OneToOne(mappedBy = "user",cascade = CascadeType.ALL)
     private Consultant consultant;
 
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<BlogPost> blogPosts;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<MenstrualCycle> menstrualCycles;
+
+    @OneToMany(mappedBy = "generatedBy", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ReportLog> reportLogs;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<TransactionHistory> transactionHistories;
+
+    @OneToMany(mappedBy = "customerID", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Booking> bookings;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Chat> chatsAsCustomer;
+
+    @OneToMany(mappedBy = "consultant", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Chat> chatsAsConsultant; // If a consultant can also be a User in Chat
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Consultation> consultationsAsCustomer;
+
+    @OneToMany(mappedBy = "consultant", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Consultation> consultationsAsConsultant;
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Feedback> feedbacksAsCustomer;
+
+    @OneToMany(mappedBy = "consultant", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Feedback> feedbacksAsConsultant; // If consultant can receive feedback directly as a User
+
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Payment> payments;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Reminder> reminders;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -119,4 +157,3 @@ public class User implements UserDetails {
 
 
 }
-

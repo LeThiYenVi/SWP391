@@ -1,7 +1,9 @@
 package com.example.gender_healthcare_service.service.impl;
 
+import com.example.gender_healthcare_service.dto.request.AdminUpdateUserRequestDTO;
 import com.example.gender_healthcare_service.dto.request.UserProfileRequest;
 import com.example.gender_healthcare_service.dto.response.UserResponseDTO;
+import com.example.gender_healthcare_service.exception.ServiceNotFoundException; // Assuming you have this for user not found
 import com.example.gender_healthcare_service.repository.UserRepository;
 import com.example.gender_healthcare_service.entity.User;
 import com.example.gender_healthcare_service.service.UserService;
@@ -12,6 +14,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.List;
 
@@ -28,8 +31,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserResponseDTO> getAllUsers() {
+        List<User> users = userRepository.findAll();
+        List<UserResponseDTO> userResponseDTOs = users.stream()
+                .map(user -> modelMapper.map(user, UserResponseDTO.class))
+                .toList();
+        return userResponseDTOs;
     }
 
     @Override
@@ -48,8 +55,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserResponseDTO updateUser(long userID, UserProfileRequest userProfile) {
-        User user = userRepository.findUserById(userID);
+    public UserResponseDTO updateUser(UserProfileRequest userProfile) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         if (user != null && userProfile != null) {
             user.setFullName(userProfile.getFullName());
             user.setEmail(userProfile.getEmail());
@@ -59,7 +66,6 @@ public class UserServiceImpl implements UserService {
                 LocalDate birthDate = LocalDate.parse(userProfile.getDateOfBirth().toString());
                 user.setDateOfBirth(birthDate);
             } catch (Exception e) {
-                // Handle the case where the date format is incorrect
                 System.out.println("Invalid date format: " + e.getMessage());
             }
             user.setUpdatedAt(new Date().toInstant());
@@ -69,7 +75,54 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Override
+    public UserResponseDTO updateUserByAdmin(Integer userId, AdminUpdateUserRequestDTO updateUserDTO) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ServiceNotFoundException("User not found with ID: " + userId));
 
+        if (updateUserDTO.getFullName() != null) {
+            user.setFullName(updateUserDTO.getFullName());
+        }
+        if (updateUserDTO.getEmail() != null) {
+            // Consider adding email uniqueness validation if it's a requirement
+            user.setEmail(updateUserDTO.getEmail());
+        }
+        if (updateUserDTO.getPhoneNumber() != null) {
+            user.setPhoneNumber(updateUserDTO.getPhoneNumber());
+        }
+        if (updateUserDTO.getAddress() != null) {
+            user.setAddress(updateUserDTO.getAddress());
+        }
+        if (updateUserDTO.getGender() != null) {
+            user.setGender(updateUserDTO.getGender());
+        }
+        if (updateUserDTO.getDateOfBirth() != null) {
+            try {
+                user.setDateOfBirth(LocalDate.parse(updateUserDTO.getDateOfBirth()));
+            } catch (DateTimeParseException e) {
+                throw new RuntimeException("Invalid date of birth format. Please use YYYY-MM-DD.", e);
+            }
+        }
+        if (updateUserDTO.getRoleName() != null) {
+
+            user.setRoleName(updateUserDTO.getRoleName());
+        }
+        if (updateUserDTO.getIsDeleted() != null) {
+            user.setIsDeleted(updateUserDTO.getIsDeleted());
+        }
+        User updatedUser = userRepository.save(user);
+        return modelMapper.map(updatedUser, UserResponseDTO.class);
+    }
+
+    @Override
+    public void deleteUserByAdmin(Integer userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new ServiceNotFoundException("User not found with ID: " + userId));
+
+
+        user.setIsDeleted(true);
+
+        userRepository.save(user);
+
+    }
 }
-
-

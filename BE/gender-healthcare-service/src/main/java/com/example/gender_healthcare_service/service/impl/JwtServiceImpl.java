@@ -1,7 +1,12 @@
 package com.example.gender_healthcare_service.service.impl;
 
+import com.example.gender_healthcare_service.service.JwtService;
+import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+import javax.crypto.SecretKey;
+
 import org.springframework.beans.factory.annotation.Value;
 
 import org.springframework.security.core.Authentication;
@@ -12,7 +17,7 @@ import java.util.Date;
 
 
 @Service
-public class JwtService {
+public class JwtServiceImpl implements JwtService {
     @Value("${jwt.secret.key}")
     private String secret_key;
     @Value("${jwt.expiration}")
@@ -20,9 +25,10 @@ public class JwtService {
     @Value("${jwt.refresh.expiration}")
     private Long refreshExpiration;
 
-    private String tokenPrefix = "Bearer ";
 
-    private Authentication authentication;
+    private SecretKey getSigningKey() {
+        return Keys.hmacShaKeyFor(secret_key.getBytes());
+    }
 
     public  String generateToken(Authentication authentication) {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
@@ -33,24 +39,39 @@ public class JwtService {
                 .claim("role", userDetails.getAuthorities().stream()
                         .map(authority -> authority.getAuthority())
                         .toList())
-                .signWith(SignatureAlgorithm.HS256, secret_key).compact();
-        return tokenPrefix + token;
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256).compact(); // Use getSigningKey()
+        return token;
+    }
+
+    public String generateRefreshToken(Authentication authentication) {
+        UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+        String token = Jwts.builder()
+                .setSubject(userDetails.getUsername())
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + refreshExpiration))
+                .signWith(getSigningKey(), SignatureAlgorithm.HS256).compact();
+        return token;
     }
 
     public String getUserNameFromJWT(String token) {
         return Jwts.parser()
-                .setSigningKey(secret_key)
-                .parseClaimsJws(token.replace(tokenPrefix, ""))
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
                 .getBody()
                 .getSubject();
     }
     public boolean validateToken(String token) {
         try {
-            Jwts.parser().setSigningKey(secret_key).parseClaimsJws(token.replace(tokenPrefix, ""));
+            Jwts.parser()
+                    .setSigningKey(getSigningKey())
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
             return true;
         } catch (Exception e) {
             throw new RuntimeException("Invalid JWT token: " + e.getMessage());
         }
     }
-
 }
+

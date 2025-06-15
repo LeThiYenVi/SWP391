@@ -21,11 +21,15 @@ public class Feedback {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "CustomerID", nullable = false)
-    private User customerID;
+    private User customer; // Renamed from customerID
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ConsultantID")
-    private User consultantID;
+    private User consultant; // Renamed from consultantID
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ServiceID")
+    private TestingService service; // Added ServiceID foreign key
 
     @Column(name = "Rating")
     private Integer rating;

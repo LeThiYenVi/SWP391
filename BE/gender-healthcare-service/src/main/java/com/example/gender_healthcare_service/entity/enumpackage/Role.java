@@ -1,4 +1,4 @@
-package com.example.gender_healthcare_service.entity;
+package com.example.gender_healthcare_service.entity.enumpackage;
 
 public enum Role {
     ROLE_CUSTOMER,

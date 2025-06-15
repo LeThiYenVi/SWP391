@@ -1,11 +1,12 @@
 package com.example.gender_healthcare_service.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Nationalized;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -14,7 +15,7 @@ import org.hibernate.annotations.Nationalized;
 public class Consultant {
     @Id
     @Column(name = "ConsultantID", nullable = false)
-    private Integer id;
+    private Integer consultantId;
 
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)
@@ -40,5 +41,8 @@ public class Consultant {
     @ColumnDefault("0")
     @Column(name = "IsDeleted")
     private Boolean isDeleted;
+
+    @OneToMany(mappedBy = "consultant", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ConsultantSchedule> consultantSchedules;
 
 }
