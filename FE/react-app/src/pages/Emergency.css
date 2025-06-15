@@ -1,0 +1,508 @@
+.emergency-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+}
+
+.emergency-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.emergency-header .emergency-icon {
+  font-size: 4rem;
+  color: #dc3545;
+  margin-bottom: 20px;
+}
+
+.emergency-header h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.emergency-header p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+/* Emergency Banner */
+.emergency-banner {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(220, 53, 69, 0.3);
+}
+
+.banner-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.warning-icon {
+  font-size: 3rem;
+  color: #fff3cd;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.banner-text h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.8rem;
+}
+
+.banner-text p {
+  margin: 0;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.emergency-call-btn {
+  background: white;
+  color: #dc3545;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 150px;
+  justify-content: center;
+}
+
+.emergency-call-btn:hover {
+  background: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Quick Assessment */
+.quick-assessment {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.quick-assessment h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+  font-size: 1.8rem;
+}
+
+.quick-assessment p {
+  color: #7f8c8d;
+  margin-bottom: 25px;
+  font-size: 1.1rem;
+}
+
+.assessment-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 20px;
+  align-items: end;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  color: #2c3e50;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.form-group select {
+  padding: 12px 15px;
+  border: 2px solid #e8ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.assessment-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: fit-content;
+}
+
+.assessment-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Emergency Contacts */
+.emergency-contacts-section {
+  margin-bottom: 40px;
+}
+
+.emergency-contacts-section h2 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.contacts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.contact-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-icon {
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.contact-info h3 {
+  color: #2c3e50;
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+}
+
+.contact-description {
+  color: #7f8c8d;
+  margin: 0 0 15px 0;
+  font-size: 0.95rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.phone-number {
+  color: #2c3e50;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.availability {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.call-btn {
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.call-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Emergency Guide */
+.emergency-guide {
+  margin-bottom: 40px;
+}
+
+.emergency-guide h2 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.guide-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 25px;
+}
+
+.guide-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.guide-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.guide-icon {
+  font-size: 2rem;
+}
+
+.guide-header h3 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.guide-content {
+  padding: 25px;
+}
+
+.symptoms-section,
+.actions-section {
+  margin-bottom: 20px;
+}
+
+.symptoms-section:last-child,
+.actions-section:last-child {
+  margin-bottom: 0;
+}
+
+.guide-content h4 {
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.guide-content ul,
+.guide-content ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.guide-content li {
+  color: #7f8c8d;
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+}
+
+/* Hospitals Section */
+.hospitals-section {
+  margin-bottom: 40px;
+}
+
+.hospitals-section h2 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.hospitals-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hospital-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.hospital-info h3 {
+  color: #2c3e50;
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+}
+
+.hospital-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 15px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #7f8c8d;
+  font-size: 0.95rem;
+}
+
+.detail-icon {
+  color: #667eea;
+  width: 16px;
+}
+
+.hospital-services {
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.hospital-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.call-hospital-btn {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.directions-btn {
+  background: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.call-hospital-btn:hover,
+.directions-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Preparedness Tips */
+.preparedness-tips h2 {
+  color: #2c3e50;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.tip-card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.tip-card h4 {
+  margin: 0 0 15px 0;
+  font-size: 1.2rem;
+}
+
+.tip-card p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .emergency-container {
+    padding: 15px;
+  }
+  
+  .banner-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .assessment-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .contacts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .guide-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hospital-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .hospital-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .emergency-header h1 {
+    font-size: 2rem;
+  }
+  
+  .banner-text h2 {
+    font-size: 1.5rem;
+  }
+  
+  .hospital-actions {
+    flex-direction: column;
+  }
+  
+  .emergency-call-btn {
+    min-width: 120px;
+    padding: 12px 20px;
+  }
+}

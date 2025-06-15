@@ -1,0 +1,389 @@
+/* Medical Report Modal Styles */
+.medical-report-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.report-container {
+  background: white;
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.report-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 30px;
+  border-bottom: 2px solid #f0f0f0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.report-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.report-config {
+  padding: 30px;
+}
+
+.config-section {
+  margin-bottom: 30px;
+}
+
+.config-section h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  border-bottom: 2px solid #e8ecef;
+  padding-bottom: 10px;
+}
+
+.report-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.report-type-option {
+  display: block;
+  cursor: pointer;
+  border: 2px solid #e8ecef;
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.report-type-option:hover {
+  border-color: #667eea;
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.1);
+}
+
+.report-type-option input[type="radio"] {
+  display: none;
+}
+
+.report-type-option input[type="radio"]:checked + .option-content {
+  color: #667eea;
+}
+
+.report-type-option:has(input[type="radio"]:checked) {
+  border-color: #667eea;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.option-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.option-icon {
+  font-size: 1.5rem;
+  color: #667eea;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+.option-content strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  color: #2c3e50;
+}
+
+.option-content p {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.date-inputs {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.date-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.date-input-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.95rem;
+}
+
+.date-input-group input {
+  padding: 12px 15px;
+  border: 2px solid #e8ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.date-input-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.report-preview {
+  margin-top: 30px;
+  padding: 25px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e8ecef;
+}
+
+.report-preview h3 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+}
+
+.preview-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e8ecef;
+}
+
+.preview-header {
+  border-bottom: 2px solid #e8ecef;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.preview-header h4 {
+  color: #2c3e50;
+  margin: 0 0 10px 0;
+  font-size: 1.3rem;
+}
+
+.preview-header p {
+  margin: 5px 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.preview-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.preview-section {
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.preview-section h5 {
+  margin: 0 0 8px 0;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.preview-section p {
+  margin: 0;
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.report-actions {
+  padding: 25px 30px;
+  border-top: 2px solid #f0f0f0;
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  min-width: 140px;
+  justify-content: center;
+}
+
+.download-btn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+.print-btn {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  color: white;
+}
+
+.print-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+.cancel-btn {
+  background: #f8f9fa;
+  color: #6c757d;
+  border: 2px solid #e8ecef;
+}
+
+.cancel-btn:hover {
+  background: #e9ecef;
+  border-color: #6c757d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .medical-report-modal {
+    padding: 10px;
+  }
+  
+  .report-container {
+    max-height: 95vh;
+  }
+  
+  .report-header {
+    padding: 20px;
+  }
+  
+  .report-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .report-config {
+    padding: 20px;
+  }
+  
+  .report-types {
+    grid-template-columns: 1fr;
+  }
+  
+  .date-inputs {
+    flex-direction: column;
+  }
+  
+  .preview-sections {
+    grid-template-columns: 1fr;
+  }
+  
+  .report-actions {
+    padding: 20px;
+    flex-direction: column;
+  }
+  
+  .action-btn {
+    min-width: auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .option-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .option-icon {
+    margin-top: 0;
+  }
+  
+  .report-type-option {
+    padding: 15px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .medical-report-modal {
+    position: static;
+    background: none;
+    padding: 0;
+  }
+  
+  .report-container {
+    max-width: none;
+    max-height: none;
+    box-shadow: none;
+    border-radius: 0;
+  }
+  
+  .report-header,
+  .report-config,
+  .report-actions {
+    display: none;
+  }
+  
+  .report-preview {
+    margin: 0;
+    padding: 0;
+    background: white;
+    border: none;
+  }
+  
+  .preview-content {
+    border: none;
+    padding: 0;
+  }
+}
