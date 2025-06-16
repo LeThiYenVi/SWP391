@@ -1,0 +1,767 @@
+/* Home.css - Vietnamese Healthcare Service */
+
+.home-container {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+/* Navigation */
+.navbar {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-brand h2 {
+  color: white;
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-link.logout {
+  background: #ef4444;
+  border-radius: 6px;
+}
+
+.nav-link.logout:hover {
+  background: #dc2626;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #e0f2fe 0%, #b3e5fc 100%);
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  color: #475569;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #2563eb;
+  padding: 1rem 2rem;
+  border: 2px solid #2563eb;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-secondary:hover {
+  background: #2563eb;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.healthcare-icon {
+  font-size: 8rem;
+  background: white;
+  padding: 2rem;
+  border-radius: 50%;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* About Section */
+.about-section {
+  padding: 4rem 0;
+  background: white;
+}
+
+.about-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 2rem;
+}
+
+.about-section p {
+  font-size: 1.1rem;
+  color: #475569;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Key Achievements Styling */
+.key-achievements {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 15px;
+  border-left: 5px solid #2563eb;
+}
+
+.key-achievements h3 {
+  color: #1e40af;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.key-achievements ul {
+  list-style: none;
+  padding: 0;
+}
+
+.key-achievements li {
+  padding: 0.8rem 0;
+  color: #374151;
+  font-weight: 500;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.key-achievements li:last-child {
+  border-bottom: none;
+}
+
+.key-achievements li:hover {
+  color: #1e40af;
+  background: rgba(37, 99, 235, 0.05);
+  padding-left: 1rem;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+/* Services Section */
+.services-section {
+  padding: 4rem 0;
+  background: #f8fafc;
+}
+
+.services-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 3rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.service-card p {
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.service-link {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.service-link:hover {
+  border-bottom-color: #2563eb;
+}
+
+/* Stats Section */
+.stats-section {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: white;
+}
+
+.stats-section h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat-item {
+  padding: 2rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.stat-item h3 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #fbbf24;
+  font-weight: 800;
+}
+
+.stat-item p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 4rem 0;
+  background: white;
+  text-align: center;
+}
+
+.cta-section h2 {
+  font-size: 2.5rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.2rem;
+  color: #475569;
+  margin-bottom: 2rem;
+}
+
+/* Footer */
+.footer {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+  padding: 3rem 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+  color: #3b82f6;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.footer-section p {
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.footer-section p:hover {
+  color: #3b82f6;
+  transition: color 0.3s ease;
+}
+
+.social-links {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #334155;
+}
+
+.social-links a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.social-links a:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+/* Certification styling */
+.certification {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-style: italic;
+}
+
+/* Certification Banner */
+.certification-banner {
+  background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+  padding: 1rem 0;
+  color: white;
+}
+
+.certifications {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.cert-icon {
+  font-size: 1.2rem;
+}
+
+/* Trust Indicators */
+.trust-indicators {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.trust-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.trust-item strong {
+  display: block;
+  font-size: 2.5rem;
+  color: #fbbf24;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.trust-item span {
+  color: white;
+  font-weight: 500;
+}
+
+/* Enhanced Leadership Team Styling */
+.leadership-team {
+  margin-top: 3rem;
+}
+
+.leaders {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.leader {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.1);
+  text-align: center;
+  border: 2px solid #f8fafc;
+  transition: all 0.3s ease;
+}
+
+.leader:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.15);
+  border-color: #2563eb;
+}
+
+.leader-avatar {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.leader h4 {
+  color: #1e40af;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.leader p {
+  color: #64748b;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* Enhanced Credentials Grid */
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.credential-item {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  border: 2px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.credential-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6, #10b981);
+}
+
+.credential-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
+  border-color: #2563eb;
+}
+
+.credential-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.credential-item h4 {
+  color: #1e40af;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.credential-item p {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Enhanced Testimonials */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.testimonial-item {
+  background: white;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #2563eb;
+  transition: all 0.3s ease;
+}
+
+.testimonial-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 35px rgba(37, 99, 235, 0.15);
+}
+
+.testimonial-content {
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-content p {
+  color: #374151;
+  font-style: italic;
+  line-height: 1.7;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-avatar {
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.author-info h4 {
+  color: #1e40af;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.author-info p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.rating {
+  color: #fbbf24;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.verified {
+  background: #10b981;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+/* Enhanced Footer */
+.footer {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: white;
+  padding: 3rem 0 1rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h4 {
+  color: #3b82f6;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.footer-section p {
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.footer-section p:hover {
+  color: #3b82f6;
+  transition: color 0.3s ease;
+}
+
+.social-links {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #334155;
+}
+
+.social-links a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.social-links a:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+/* Enhanced Service Features */
+.service-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.feature {
+  background: linear-gradient(90deg, #eff6ff, #dbeafe);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: #1e40af;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-left: 3px solid #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+  }
+  
+  .hero-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .healthcare-icon {
+    font-size: 4rem;
+    padding: 1rem;
+  }
+  
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .leaders {
+    grid-template-columns: 1fr;
+  }
+  
+  .credentials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .trust-indicators {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .certifications {
+    gap: 1rem;
+  }
+  
+  .cert-item {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

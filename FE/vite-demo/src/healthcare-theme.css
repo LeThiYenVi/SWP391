@@ -1,0 +1,219 @@
+/* Healthcare Gender Services Theme Variables */
+:root {
+  /* Primary Colors - Medical Theme */
+  --primary-color: #667eea;
+  --primary-dark: #764ba2;
+  --primary-light: rgba(102, 126, 234, 0.1);
+  
+  /* Background Colors */
+  --bg-primary: #f8fafe;
+  --bg-white: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.1);
+  
+  /* Text Colors */
+  --text-primary: #1a365d;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --text-white: #ffffff;
+  
+  /* Border Colors */
+  --border-light: #e2e8f0;
+  --border-primary: rgba(102, 126, 234, 0.2);
+  
+  /* Status Colors */
+  --success-color: #48bb78;
+  --error-color: #f56565;
+  --warning-color: #ed8936;
+  --info-color: #4299e1;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-light: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  --space-2xl: 40px;
+  
+  /* Typography */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-base: 16px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 32px;
+  
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.2s ease;
+  --transition-slow: 0.3s ease;
+  
+  /* Z-index */
+  --z-dropdown: 1000;
+  --z-modal: 1050;
+  --z-tooltip: 1100;
+}
+
+/* Healthcare specific icons and symbols */
+.medical-icon {
+  color: var(--primary-color);
+  font-size: 1.2em;
+}
+
+.healthcare-badge {
+  background: var(--gradient-light);
+  border: 1px solid var(--border-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Utility classes for healthcare theme */
+.text-medical {
+  color: var(--primary-color);
+}
+
+.bg-medical {
+  background: var(--gradient-primary);
+}
+
+.border-medical {
+  border-color: var(--primary-color);
+}
+
+.shadow-medical {
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.15);
+}
+
+/* Medical form styles */
+.medical-form-group {
+  margin-bottom: var(--space-lg);
+}
+
+.medical-input {
+  border: 2px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  font-size: var(--font-size-base);
+  transition: border-color var(--transition-normal);
+}
+
+.medical-input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.medical-button {
+  background: var(--gradient-primary);
+  color: var(--text-white);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-xl);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-normal);
+}
+
+.medical-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-medical);
+}
+
+.medical-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive utilities */
+.container-fluid {
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+  .container-fluid {
+    padding: 0 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container-fluid {
+    padding: 0 30px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container-fluid {
+    padding: 0 40px;
+  }
+}
+
+/* Prevent horizontal scroll */
+.no-scroll-x {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Text utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-xs { font-size: var(--font-size-xs); }
+.text-sm { font-size: var(--font-size-sm); }
+.text-base { font-size: var(--font-size-base); }
+.text-lg { font-size: var(--font-size-lg); }
+
+/* Spacing utilities */
+.m-0 { margin: 0; }
+.p-0 { padding: 0; }
+.mb-1 { margin-bottom: var(--space-xs); }
+.mb-2 { margin-bottom: var(--space-sm); }
+.mb-3 { margin-bottom: var(--space-md); }
+.mb-4 { margin-bottom: var(--space-lg); }
+
+/* Flexbox utilities */
+.d-flex { display: flex; }
+.flex-column { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.justify-center { justify-content: center; }
+.align-center { align-items: center; }
+.flex-1 { flex: 1; }
+
+/* Width utilities */
+.w-full { width: 100%; }
+.w-auto { width: auto; }
+.max-w-full { max-width: 100%; }
+
+/* Overflow utilities */
+.overflow-hidden { overflow: hidden; }
+.overflow-x-hidden { overflow-x: hidden; }
+.overflow-y-auto { overflow-y: auto; }

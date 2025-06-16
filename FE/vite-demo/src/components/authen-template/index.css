@@ -1,0 +1,329 @@
+/* Figma Design Implementation - Gynexa Medical App */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.authen-template {
+  width: 100%;
+  min-height: 100vh;
+  max-width: 100vw;
+  display: flex;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow: hidden;
+}
+
+.authen-layout {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.authen-left {
+  flex: 1;
+  background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Circular background decorations */
+.authen-left::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.authen-left::after {
+  content: '';
+  position: absolute;
+  bottom: -150px;
+  left: -150px;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.authen-brand {
+  text-align: center;
+  margin-bottom: 50px;
+  z-index: 2;
+  position: relative;
+}
+
+.authen-logo {
+  font-size: 48px;
+  font-weight: 700;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.logo-icon {
+  font-size: 50px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+}
+
+.authen-image {
+  width: 100%;
+  max-width: 400px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  position: relative;
+}
+
+.doctor-illustration {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.doctor-group {
+  display: flex;
+  gap: 30px;
+  align-items: flex-end;
+  position: relative;
+}
+
+.doctor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.doctor-1 {
+  animation-delay: 0s;
+}
+
+.doctor-2 {
+  animation-delay: 1s;
+  transform: translateY(-20px);
+}
+
+.doctor-3 {
+  animation-delay: 2s;
+}
+
+@keyframes breathe {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-10px) scale(1.05); }
+}
+
+.doctor-avatar {
+  font-size: 60px;
+  margin-bottom: 10px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+  border-radius: 50%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.doctor-mask {
+  width: 40px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.medical-tools {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stethoscope, .clipboard {
+  font-size: 30px;
+  opacity: 0.7;
+  animation: float 3s ease-in-out infinite;
+}
+
+.clipboard {
+  animation-delay: 1.5s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+.authen-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.authen-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 0;
+  background: transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .authen-left {
+    padding: 40px 30px;
+  }
+  
+  .authen-logo {
+    font-size: 40px;
+    gap: 12px;
+  }
+  
+  .logo-icon {
+    font-size: 42px;
+  }
+  
+  .doctor-avatar {
+    font-size: 50px;
+  }
+  
+  .authen-image {
+    max-width: 350px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .authen-layout {
+    flex-direction: column;
+  }
+  
+  .authen-left {
+    min-height: 50vh;
+    padding: 30px 20px;
+  }
+  
+  .authen-right {
+    min-height: 50vh;
+    padding: 30px 20px;
+  }
+  
+  .authen-brand {
+    margin-bottom: 30px;
+  }
+  
+  .authen-logo {
+    font-size: 36px;
+    gap: 10px;
+  }
+  
+  .logo-icon {
+    font-size: 38px;
+  }
+  
+  .authen-image {
+    max-width: 300px;
+    height: 250px;
+  }
+  
+  .doctor-group {
+    gap: 20px;
+  }
+  
+  .doctor-avatar {
+    font-size: 40px;
+    padding: 8px;
+  }
+  
+  .medical-tools {
+    top: 10px;
+    right: 10px;
+    gap: 15px;
+  }
+  
+  .stethoscope, .clipboard {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .authen-left {
+    padding: 20px 15px;
+    min-height: 40vh;
+  }
+  
+  .authen-right {
+    padding: 20px 15px;
+    min-height: 60vh;
+  }
+  
+  .authen-logo {
+    font-size: 28px;
+    gap: 8px;
+  }
+  
+  .logo-icon {
+    font-size: 30px;
+  }
+  
+  .authen-image {
+    max-width: 250px;
+    height: 200px;
+  }
+  
+  .doctor-group {
+    gap: 15px;
+  }
+  
+  .doctor-avatar {
+    font-size: 32px;
+    padding: 6px;
+  }
+  
+  .doctor-mask {
+    width: 30px;
+    height: 12px;
+    bottom: 20px;
+  }
+  
+  .medical-tools {
+    gap: 10px;
+  }
+  
+  .stethoscope, .clipboard {
+    font-size: 20px;
+  }
+  
+  .authen-card {
+    max-width: 100%;
+  }
+}
