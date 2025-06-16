@@ -17,14 +17,21 @@ import java.time.Instant;
 @Table(name = "Payments")
 public class Payment {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PaymentID", nullable = false)
     private Integer id;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "CustomerID", nullable = false)
-    private User customer;
+    private User customer; // Renamed from customerID
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "BookingID")
+    private Booking booking; // Added BookingID foreign key
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ConsultationID")
+    private Consultation consultation; // Added ConsultationID foreign key
 
     @NotNull
     @Column(name = "Amount", nullable = false, precision = 10, scale = 2)

@@ -1,40 +1,34 @@
 package com.example.gender_healthcare_service.controller;
 
-import com.example.gender_healthcare_service.entity.Feedback;
-import com.example.gender_healthcare_service.service.impl.FeedbackService;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/feedback")
 public class FeedbackController {
-    @Autowired
-    private FeedbackService feedbackService;
 
-    @GetMapping
-    public List<Feedback> getAllFeedback() {
-        return feedbackService.getAllFeedback();
+    @PostMapping("/consultation")
+    public ResponseEntity<?> submitConsultationFeedback(/*@RequestBody ConsultationFeedbackDTO feedbackDTO*/) {
+        // TODO: Process consultation feedback
+        return null;
     }
 
-    @PostMapping
-    public Feedback createFeedback(@RequestBody Feedback feedback) {
-        return feedbackService.createFeedback(feedback);
+    @PostMapping("/testing-service")
+    public ResponseEntity<?> submitTestingServiceFeedback(/*@RequestBody TestingServiceFeedbackDTO feedbackDTO*/) {
+        // TODO: Process testing service feedback
+        return null;
     }
 
-    @GetMapping("/{id}")
-    public Feedback getFeedbackById(@PathVariable Integer id) {
-        return feedbackService.getFeedbackById(id);
+    @GetMapping("/consultant/{consultantId}")
+    public ResponseEntity<?> getConsultantFeedback(@PathVariable Long consultantId) {
+        // TODO: Retrieve feedback for a specific consultant
+        return null;
     }
 
-    @PutMapping("/{id}")
-    public Feedback updateFeedback(@PathVariable Integer id, @RequestBody Feedback feedback) {
-        return feedbackService.updateFeedback(id, feedback);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteFeedback(@PathVariable Integer id) {
-        feedbackService.deleteFeedback(id);
+    @GetMapping("/testing-service/{serviceId}")
+    public ResponseEntity<?> getTestingServiceFeedback(@PathVariable Long serviceId) {
+        // TODO: Retrieve feedback for a specific testing service
+        return null;
     }
 }
+
