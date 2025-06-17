@@ -16,8 +16,9 @@ import java.time.Instant;
 @Table(name = "Consultations")
 public class Consultation {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ConsultationID", nullable = false)
-    private Integer id;
+    private long id;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

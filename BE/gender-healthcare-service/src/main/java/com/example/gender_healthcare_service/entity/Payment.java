@@ -19,7 +19,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "PaymentID", nullable = false)
-    private Integer id;
+    private long id;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

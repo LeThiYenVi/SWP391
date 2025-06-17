@@ -16,8 +16,9 @@ import java.time.Instant;
 @Table(name = "Reminders")
 public class Reminder {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ReminderID", nullable = false)
-    private Integer id;
+    private long id;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

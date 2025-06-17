@@ -13,8 +13,9 @@ import org.hibernate.annotations.Nationalized;
 @Table(name = "Consultants")
 public class Consultant {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ConsultantID", nullable = false)
-    private Integer id;
+    private long id;
 
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)
