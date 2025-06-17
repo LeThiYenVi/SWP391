@@ -18,6 +18,7 @@ import java.util.List; // Added for TransactionHistory
 @Table(name = "Bookings")
 public class Booking {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "BookingID", nullable = false)
     private Integer id;
 
