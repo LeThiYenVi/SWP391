@@ -23,7 +23,7 @@ public class Reminder {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "UserID", nullable = false)
-    private User userID;
+    private User user; // Renamed from userID
 
     @Size(max = 255)
     @NotNull

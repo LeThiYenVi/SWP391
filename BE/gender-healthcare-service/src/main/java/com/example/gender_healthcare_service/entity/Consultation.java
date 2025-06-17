@@ -1,5 +1,6 @@
 package com.example.gender_healthcare_service.entity;
 
+import com.example.gender_healthcare_service.entity.enumpackage.ConsultationStatus;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -9,6 +10,7 @@ import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Nationalized;
 
 import java.time.Instant;
+import java.util.List; // Added for Payments
 
 @Getter
 @Setter
@@ -23,22 +25,24 @@ public class Consultation {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "CustomerID", nullable = false)
-    private User customerID;
+    private User customer;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "ConsultantID", nullable = false)
-    private User consultantID;
+    private User consultant;
 
     @NotNull
     @Column(name = "ConsultationDate", nullable = false)
     private Instant consultationDate;
 
-    @Size(max = 255)
+    @OneToMany(mappedBy = "consultation", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Payment> payments; // If a consultation can have multiple payments
+
     @NotNull
-    @Nationalized
+    @Enumerated(EnumType.STRING)
     @Column(name = "Status", nullable = false)
-    private String status;
+    private ConsultationStatus status;
 
     @Size(max = 200)
     @Nationalized
@@ -56,6 +60,13 @@ public class Consultation {
 
     @ColumnDefault("0")
     @Column(name = "IsDeleted")
-    private Boolean isDeleted;
+    private Boolean isDeleted = false;
+
+    @PrePersist
+    protected void onCreate() {
+        if (createdAt == null) {
+            createdAt = Instant.now();
+        }
+    }
 
 }

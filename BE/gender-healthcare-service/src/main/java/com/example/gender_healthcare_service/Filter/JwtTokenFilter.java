@@ -1,7 +1,7 @@
 package com.example.gender_healthcare_service.Filter;
 
-import com.example.gender_healthcare_service.service.impl.AuthenticationService;
-import com.example.gender_healthcare_service.service.impl.JwtService;
+import com.example.gender_healthcare_service.service.AuthenticationService;
+import com.example.gender_healthcare_service.service.impl.JwtServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,7 +23,7 @@ import java.util.List;
 public class JwtTokenFilter extends OncePerRequestFilter {
 
     @Autowired
-    private JwtService tokenService;
+    private JwtServiceImpl tokenService;
     @Autowired
     private AuthenticationService authenticationService;
     private final List<String> AUTH_PERMISSION = List.of(
@@ -35,9 +35,11 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             "/doctors",
             "/blog",
             "/contact",
-            "/api/loginByGoogle",
             "/api//forgot-password",
-            "/api/reset-password"
+            "/api/reset-password",
+            "/api/auth/login-by-google",
+            "/api/auth/register",
+            "/api/auth/forgot-password"
     );
 
     public boolean checkIsPublicAPI(String uri) {
@@ -47,17 +49,29 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        boolean isPublicAPI = checkIsPublicAPI(request.getRequestURI());
-        if (isPublicAPI) {
-            filterChain.doFilter(request, response);
-        } else {
+        try {
+            boolean isPublicAPI = checkIsPublicAPI(request.getRequestURI());
+            System.out.println("Is public API: " + isPublicAPI);
+
+            if (isPublicAPI) {
+                filterChain.doFilter(request, response);
+                return;
+            }
+
+            // Xử lý Authorization header
             String authHeader = request.getHeader("Authorization");
+            System.out.println("Authorization header: " + authHeader);
+
             if (StringUtils.hasText(authHeader) && authHeader.startsWith("Bearer ")) {
                 String token = authHeader.substring(7);
+                System.out.println("Extracted token: " + (token != null ? token.substring(0, Math.min(10, token.length())) + "..." : "null"));
+
                 if (!tokenService.validateToken(token)) {
+                    System.out.println("Token validation failed");
                     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid JWT token");
                     return;
                 }
+
                 String username = tokenService.getUserNameFromJWT(token);
                 UserDetails userDetails = authenticationService.loadUserByUsername(username);
                 UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
@@ -65,11 +79,14 @@ public class JwtTokenFilter extends OncePerRequestFilter {
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 SecurityContextHolder.getContext().setAuthentication(authentication);
                 filterChain.doFilter(request, response);
-            }
-            else {
+            } else {
+                System.out.println("No JWT token found in request");
                 response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Authorization required");
-                return;
             }
+        } catch (Exception e) {
+            System.out.println("Exception in JwtTokenFilter: " + e.getMessage());
+            e.printStackTrace();
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Error processing JWT token: " + e.getMessage());
         }
     }
 }
