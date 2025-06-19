@@ -28,7 +28,7 @@ public class Booking {
     private User customerID;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "ServiceID", nullable = false) // Assuming ServiceID in Bookings maps to TestingService
+    @JoinColumn(name = "ServiceID", nullable = false)
     private TestingService service;
 
     @ManyToOne(fetch = FetchType.LAZY)

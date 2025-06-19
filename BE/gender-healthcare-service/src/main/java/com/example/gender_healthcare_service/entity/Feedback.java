@@ -16,20 +16,20 @@ import java.time.Instant;
 public class Feedback {
     @Id
     @Column(name = "FeedbackID", nullable = false)
-    private long id;
+    private Integer id;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "CustomerID", nullable = false)
-    private User customer; // Renamed from customerID
+    private User customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ConsultantID")
-    private User consultant; // Renamed from consultantID
+    private User consultant;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ServiceID")
-    private TestingService service; // Added ServiceID foreign key
+    private TestingService service;
 
     @Column(name = "Rating")
     private Integer rating;

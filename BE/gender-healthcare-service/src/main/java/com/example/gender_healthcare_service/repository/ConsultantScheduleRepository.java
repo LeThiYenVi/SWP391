@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface ConsultantScheduleRepository extends JpaRepository<ConsultantSchedule, Integer> {
 
-    List<ConsultantSchedule> findByConsultantConsultantIdAndScheduleDateBetween(Integer consultantId, LocalDate startDate, LocalDate endDate);
+    List<ConsultantSchedule> findByConsultantIdAndScheduleDateBetween(Integer consultantId, LocalDate startDate, LocalDate endDate);
 
     // List<ConsultantSchedule> findByConsultantAndScheduleDateBetween(Consultant consultant, LocalDate startDate, LocalDate endDate);
 }

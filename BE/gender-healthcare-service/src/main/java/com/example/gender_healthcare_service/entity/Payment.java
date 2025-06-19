@@ -18,21 +18,20 @@ import java.time.Instant;
 public class Payment {
     @Id
     @Column(name = "PaymentID", nullable = false)
-    private long id;
+    private Integer id;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "CustomerID", nullable = false)
-    private User customer; // Renamed from customerID
+    private User customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "BookingID")
-    private Booking booking; // Added BookingID foreign key
+    private Booking booking;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ConsultationID")
-    private Consultation consultation; // Added ConsultationID foreign key
-
+    private Consultation consultation;
     @NotNull
     @Column(name = "Amount", nullable = false, precision = 10, scale = 2)
     private BigDecimal amount;

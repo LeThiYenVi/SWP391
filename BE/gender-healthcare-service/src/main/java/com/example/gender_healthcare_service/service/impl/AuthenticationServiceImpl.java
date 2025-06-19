@@ -34,12 +34,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.beans.factory.annotation.Value; // Added import
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID; // For generating unique tokens
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -61,7 +62,7 @@ public class AuthenticationServiceImpl implements UserDetailsService, Authentica
     @Autowired
     private PasswordResetTokenRepository passwordResetTokenRepository;
 
-    @Value("${spring.security.oauth2.client.registration.google.client-id}") // Added property injection
+    @Value("${spring.security.oauth2.client.registration.google.client-id}")
     private String googleClientId;
 
     public ResponseEntity<?> registerUser(RegisterRequest RegisterUser) {
@@ -94,8 +95,8 @@ public class AuthenticationServiceImpl implements UserDetailsService, Authentica
             );
             String jwt = jwtService.generateToken(authentication);
             String refreshToken = jwtService.generateRefreshToken(authentication);
-            emailService.welcomeEmail(newUser.getEmail(), newUser.getFullName()); // FullName will now be correct in the email
-            return ResponseEntity.ok(new AuthResponseDTO(jwt, refreshToken, newUser.getUsername(), newUser.getRoleName())); // Include username and role in the response
+            emailService.welcomeEmail(newUser.getEmail(), newUser.getFullName());
+            return ResponseEntity.ok(new AuthResponseDTO(jwt, refreshToken, newUser.getUsername(), newUser.getRoleName()));
         }
         return ResponseEntity.badRequest().body("Invalid registration request");
     }
@@ -194,6 +195,7 @@ public class AuthenticationServiceImpl implements UserDetailsService, Authentica
         }
     }
 
+    @Transactional
     public ResponseEntity<?> handleForgotPassword(String email) {
         System.out.println("[LOG] Received forgot password request for email: " + email);
         User user = userRepository.findUserByEmail(email);
@@ -314,22 +316,21 @@ public class AuthenticationServiceImpl implements UserDetailsService, Authentica
         }
 
         if (resetTokenEntity.isExpired()) {
-            passwordResetTokenRepository.delete(resetTokenEntity); // Clean up expired token
+            passwordResetTokenRepository.delete(resetTokenEntity);
             return ResponseEntity.badRequest().body("Password reset token has expired.");
         }
 
         User user = resetTokenEntity.getUser();
         if (user == null) {
-            // Should not happen if token integrity is maintained
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("User associated with token not found.");
         }
 
         user.setPasswordHash(passwordEncoder.encode(newPassword));
         userRepository.save(user);
 
-        passwordResetTokenRepository.delete(resetTokenEntity); // Delete the token after successful use
+        passwordResetTokenRepository.delete(resetTokenEntity);
 
-        emailService.resetPasswordEmail(user.getEmail(), null); // Send confirmation email (OTP not needed here)
+        emailService.resetPasswordEmail(user.getEmail(), null);
 
         return ResponseEntity.ok().body("Password has been reset successfully.");
     }

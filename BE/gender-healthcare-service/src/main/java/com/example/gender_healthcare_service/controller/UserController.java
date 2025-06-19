@@ -5,6 +5,9 @@ import com.example.gender_healthcare_service.dto.response.BookingResponseDTO;
 import com.example.gender_healthcare_service.dto.response.UserResponseDTO;
 import com.example.gender_healthcare_service.service.BookingService;
 import com.example.gender_healthcare_service.service.UserService;
+import com.example.gender_healthcare_service.dto.request.MenstrualCycleRequestDTO;
+import com.example.gender_healthcare_service.dto.response.MenstrualCycleResponseDTO;
+import com.example.gender_healthcare_service.service.MenstrualCycleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -21,6 +24,9 @@ public class UserController {
 
     @Autowired
     private BookingService bookingService;
+
+    @Autowired
+    private MenstrualCycleService menstrualCycleService;
 
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfile(@RequestBody UserProfileRequest userProfileUpdate) {
@@ -48,20 +54,22 @@ public class UserController {
         return ResponseEntity.ok(bookingHistory);
     }
 
-    @PostMapping("/menstrual-cycle/log")
-    public ResponseEntity<?> logMenstrualPeriod(/*@RequestBody MenstrualCycleLogDTO logDTO*/) {
-        // TODO: Implement log menstrual period logic
-        return null;
+    @PostMapping("/menstrual-cycle")
+    public ResponseEntity<?> saveMenstrualCycle(@RequestBody MenstrualCycleRequestDTO requestDTO) {
+        // Assuming you have a way to get the current user's ID
+        // For example, from the security context
+        // Long userId = ...;
+        // MenstrualCycleResponseDTO responseDTO = menstrualCycleService.saveMenstrualCycle(userId, requestDTO);
+        // return ResponseEntity.ok(responseDTO);
+        return ResponseEntity.ok("Endpoint for saving menstrual cycle data is ready.");
     }
 
-    @GetMapping("/menstrual-cycle/tracker")
-    public ResponseEntity<?> getMenstrualCycleTracker() {
-        // TODO: Implement get menstrual cycle tracking info logic
-        return null;
-    }
-
-    @GetMapping("/reminders")
-    public ResponseEntity<?> getUserReminders() {
-        return null;
+    @GetMapping("/menstrual-cycle")
+    public ResponseEntity<?> getMenstrualCycle() {
+        // Assuming you have a way to get the current user's ID
+        // Long userId = ...;
+        // MenstrualCycleResponseDTO responseDTO = menstrualCycleService.getMenstrualCycle(userId);
+        // return ResponseEntity.ok(responseDTO);
+        return ResponseEntity.ok("Endpoint for getting menstrual cycle data is ready.");
     }
 }

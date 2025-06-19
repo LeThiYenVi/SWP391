@@ -29,7 +29,7 @@ public class ModelMapperConfig {
         TypeMap<Consultant, ConsultantDTO> typeMap = modelMapper.createTypeMap(Consultant.class, ConsultantDTO.class);
         typeMap.addMappings(mapper -> {
             try {
-                mapper.map(Consultant::getConsultantId, ConsultantDTO::setId);
+                mapper.map(Consultant::getId, ConsultantDTO::setId);
                 mapper.map(src->src.getUser().getUsername(), ConsultantDTO::setUsername);
                 mapper.map(src->src.getUser().getEmail(), ConsultantDTO::setEmail);
                 mapper.map(src->src.getUser().getFullName(), ConsultantDTO::setFullName);

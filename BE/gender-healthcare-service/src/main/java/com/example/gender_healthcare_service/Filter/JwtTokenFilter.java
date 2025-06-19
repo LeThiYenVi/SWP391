@@ -39,7 +39,11 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             "/api/reset-password",
             "/api/auth/login-by-google",
             "/api/auth/register",
-            "/api/auth/forgot-password"
+            "/api/auth/forgot-password",
+            "/swagger-ui/**",
+            "/v3/api-docs/**",
+            "/favicon.ico",
+            "/swagger-ui.html"
     );
 
     public boolean checkIsPublicAPI(String uri) {

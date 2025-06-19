@@ -15,7 +15,7 @@ public class Consultant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ConsultantID", nullable = false)
-    private long id;
+    private Integer id;
 
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)

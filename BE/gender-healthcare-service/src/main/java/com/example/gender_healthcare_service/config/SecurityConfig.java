@@ -48,6 +48,7 @@ public class SecurityConfig {
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/auth/login-by-google", "/api/auth/refresh-token").permitAll()
                         .requestMatchers("/oauth2/**").permitAll()
+                        .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/favicon.ico", "/swagger-ui.html").permitAll()
                         .anyRequest().authenticated()
                 ).csrf(csrf -> csrf.disable())
                 .exceptionHandling(exception -> exception

@@ -17,7 +17,7 @@ public class ConsultantUnavailability {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "consultant_id", nullable = false)
