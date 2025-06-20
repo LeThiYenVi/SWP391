@@ -18,7 +18,7 @@ import java.time.Instant;
 public class Payment {
     @Id
     @Column(name = "PaymentID", nullable = false)
-    private long id;
+    private Integer id;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

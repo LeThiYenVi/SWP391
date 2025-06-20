@@ -16,7 +16,7 @@ import java.time.Instant;
 public class Chat {
     @Id
     @Column(name = "QuestionID", nullable = false)
-    private long id;
+    private Integer id;
 
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

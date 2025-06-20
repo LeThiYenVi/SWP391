@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class RescheduleBookingRequestDTO {
     private LocalDate newBookingDate;
-    private Long newTimeSlotId;
+    private Integer newTimeSlotId;
     private String adminNotes;
 }
 

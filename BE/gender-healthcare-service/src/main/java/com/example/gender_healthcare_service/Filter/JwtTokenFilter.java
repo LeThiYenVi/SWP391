@@ -27,7 +27,7 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     @Autowired
     private AuthenticationService authenticationService;
     private final List<String> AUTH_PERMISSION = List.of(
-            "/api/login",
+            "/api/auth/login",
             "/api/register",
             "/",
             "/home",
@@ -39,7 +39,9 @@ public class JwtTokenFilter extends OncePerRequestFilter {
             "/api/reset-password",
             "/api/auth/login-by-google",
             "/api/auth/register",
-            "/api/auth/forgot-password"
+            "/v3/api-docs/**",
+            "/swagger-ui/**",
+            "/swagger-ui.html"
     );
 
     public boolean checkIsPublicAPI(String uri) {

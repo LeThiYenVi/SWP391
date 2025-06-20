@@ -1,7 +1,6 @@
 package com.example.gender_healthcare_service.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
@@ -15,7 +14,7 @@ public class Consultant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ConsultantID", nullable = false)
-    private long id;
+    private Integer id;
 
     @MapsId
     @OneToOne(fetch = FetchType.LAZY, optional = false)

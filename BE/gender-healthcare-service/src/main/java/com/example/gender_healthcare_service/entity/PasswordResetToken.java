@@ -18,7 +18,7 @@ public class PasswordResetToken {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(nullable = false, unique = true)
     private String token;
@@ -27,7 +27,7 @@ public class PasswordResetToken {
     @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
-    @Column(nullable = false, name = "expiry_date") // Explicitly map to expiry_date
+    @Column(nullable = false, name = "expiry_date")
     private Instant expiryDate;
 
     public PasswordResetToken(String token, User user) {

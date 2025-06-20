@@ -7,8 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+
 @Repository
 public interface MenstrualCycleRepository extends JpaRepository<MenstrualCycle, Integer> {
     List<MenstrualCycle> findByUser(User user);
+    MenstrualCycle findByUserId(Integer userId);
 }
-

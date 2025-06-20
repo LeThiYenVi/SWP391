@@ -17,7 +17,7 @@ public class ConsultantUnavailability {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "consultant_id", nullable = false)
@@ -32,6 +32,6 @@ public class ConsultantUnavailability {
     @Column(name = "end_time", nullable = false)
     private LocalTime endTime;
 
-    private String reason; // Optional reason for unavailability
+    private String reason;
 }
 

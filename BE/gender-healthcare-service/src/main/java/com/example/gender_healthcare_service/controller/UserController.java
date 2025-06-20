@@ -1,10 +1,15 @@
 package com.example.gender_healthcare_service.controller;
 
+import com.example.gender_healthcare_service.dto.request.MenstrualCycleRequestDTO;
+import com.example.gender_healthcare_service.dto.request.MenstrualLogRequestDTO;
 import com.example.gender_healthcare_service.dto.request.UserProfileRequest;
 import com.example.gender_healthcare_service.dto.response.BookingResponseDTO;
+import com.example.gender_healthcare_service.dto.response.MenstrualCycleResponseDTO;
 import com.example.gender_healthcare_service.dto.response.UserResponseDTO;
 import com.example.gender_healthcare_service.service.BookingService;
+import com.example.gender_healthcare_service.service.MenstrualCycleService;
 import com.example.gender_healthcare_service.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -21,6 +26,9 @@ public class UserController {
 
     @Autowired
     private BookingService bookingService;
+
+    @Autowired
+    private MenstrualCycleService menstrualCycleService;
 
     @PutMapping("/profile")
     public ResponseEntity<?> updateProfile(@RequestBody UserProfileRequest userProfileUpdate) {
@@ -48,16 +56,28 @@ public class UserController {
         return ResponseEntity.ok(bookingHistory);
     }
 
+    @PostMapping("/menstrual-cycle")
+    public ResponseEntity<MenstrualCycleResponseDTO> addOrUpdateMenstrualCycle(@RequestBody MenstrualCycleRequestDTO requestDTO) {
+        return ResponseEntity.ok(menstrualCycleService.addOrUpdateMenstrualCycle(requestDTO));
+    }
+
     @PostMapping("/menstrual-cycle/log")
-    public ResponseEntity<?> logMenstrualPeriod(/*@RequestBody MenstrualCycleLogDTO logDTO*/) {
-        // TODO: Implement log menstrual period logic
-        return null;
+    public ResponseEntity<?> logMenstrualPeriod(@RequestBody MenstrualLogRequestDTO logDTO) {
+        try {
+            menstrualCycleService.logMenstrualPeriod(logDTO);
+            return ResponseEntity.ok("Menstrual period logged successfully");
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body("Failed to log menstrual period: " + e.getMessage());
+        }
     }
 
     @GetMapping("/menstrual-cycle/tracker")
     public ResponseEntity<?> getMenstrualCycleTracker() {
-        // TODO: Implement get menstrual cycle tracking info logic
-        return null;
+        try {
+            return ResponseEntity.ok(menstrualCycleService.getMenstrualCycleTracker());
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body(e.getMessage());
+        }
     }
 
     @GetMapping("/reminders")

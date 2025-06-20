@@ -1,9 +1,11 @@
 package com.example.gender_healthcare_service.config;
 
 import com.example.gender_healthcare_service.dto.response.ConsultantDTO;
+import com.example.gender_healthcare_service.dto.response.MenstrualCycleResponseDTO;
 import com.example.gender_healthcare_service.dto.response.TestingServiceResponseDTO;
 import com.example.gender_healthcare_service.dto.response.UserResponseDTO;
 import com.example.gender_healthcare_service.entity.Consultant;
+import com.example.gender_healthcare_service.entity.MenstrualCycle;
 import com.example.gender_healthcare_service.entity.TestingService;
 import com.example.gender_healthcare_service.entity.User;
 import org.modelmapper.ModelMapper;
@@ -21,7 +23,8 @@ public class ModelMapperConfig {
         ModelMapper modelMapper = new ModelMapper();
         configureUserMapping(modelMapper);
         configureConsultantMapping(modelMapper);
-        configureServiceMapping(modelMapper); // Register service mapping
+        configureServiceMapping(modelMapper);
+        configureMenstrualCycleMapping(modelMapper);
         return modelMapper;
     }
 
@@ -29,7 +32,7 @@ public class ModelMapperConfig {
         TypeMap<Consultant, ConsultantDTO> typeMap = modelMapper.createTypeMap(Consultant.class, ConsultantDTO.class);
         typeMap.addMappings(mapper -> {
             try {
-                mapper.map(Consultant::getConsultantId, ConsultantDTO::setId);
+                mapper.map(Consultant::getId, ConsultantDTO::setId);
                 mapper.map(src->src.getUser().getUsername(), ConsultantDTO::setUsername);
                 mapper.map(src->src.getUser().getEmail(), ConsultantDTO::setEmail);
                 mapper.map(src->src.getUser().getFullName(), ConsultantDTO::setFullName);
@@ -46,6 +49,15 @@ public class ModelMapperConfig {
             }
         });
     }
+    private void configureMenstrualCycleMapping(ModelMapper modelMapper) {
+        modelMapper.createTypeMap(MenstrualCycle.class, MenstrualCycleResponseDTO.class)
+                .addMappings(mapper -> {
+                    mapper.map(MenstrualCycle::getStartDate, MenstrualCycleResponseDTO::setStartDate);
+                    mapper.map(MenstrualCycle::getPeriodDay, MenstrualCycleResponseDTO::setPredictedPeriodDay);
+                    mapper.map(MenstrualCycle::getUpdatedAt, MenstrualCycleResponseDTO::setLastTimeTakePeriod);
+                });
+    }
+
     public void configureServiceMapping(ModelMapper modelMapper) {
         TypeMap<TestingService, TestingServiceResponseDTO> typeMap = modelMapper.createTypeMap(TestingService.class, TestingServiceResponseDTO.class);
         typeMap.addMappings(mapper -> {
@@ -91,5 +103,3 @@ public class ModelMapperConfig {
         });
     }
 }
-//    private void configureConsultantMapping(ModelMapper modelMapper) {
-//        modelMapper.typeMap(Consultant.class, Consultant

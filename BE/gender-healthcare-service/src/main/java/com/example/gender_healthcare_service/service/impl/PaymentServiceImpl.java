@@ -1,6 +1,7 @@
-package com.example.gender_healthcare_service.service;
+package com.example.gender_healthcare_service.service.impl;
 
-import com.example.gender_healthcare_service.repository.PaymentRepo;
+
+import com.example.gender_healthcare_service.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class PaymentServiceImpl implements PaymentService {
 
     @Autowired
-    private PaymentRepo paymentRepository; // Assuming a PaymentRepository exists for database operations
+    private PaymentService paymentRepository;
 
     @Override
     public String createPayment(String paymentDetails) {
